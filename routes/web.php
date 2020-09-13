@@ -48,7 +48,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('/{id}/produk', 'ProductsController@index')->name('product');
     Route::get('/produk/add', 'ProductsController@add');
-    // Route::post('/produk/create', 'ProductsController@create');
+    Route::post('/produk/create', 'ProductsController@create');
     // Route::post('/produk/activation', 'ProductsController@activation');
     // Route::get('/produk/{id}/edit', 'ProductsController@edit');
     // Route::post('/produk/{id}/update', 'ProductsController@update');
@@ -78,11 +78,5 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::post('/user/{id}/update', 'AdminController@update');
     Route::get('/user/{id}/delete', 'AdminController@delete');
     Route::post('/user/activation', 'AdminController@activation');
-
-    Route::post('/getcategori', function (Request $request) {
-        // $arrCategories = App\Product_Categories::where('business_id', $request->paramid)->orderBy('kategori_produk','asc')->pluck('id','kategori_produk')->prepend('','Pilih Kategori');
-        $data = $request->paramid;
-        return response()->json(['code' => 200,'data' => $data], 200);
-    })->name('getCategoryFromBusiness');
 
 });

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Products;
 use App\Business;
 use App\Product_Categories;
@@ -27,5 +28,13 @@ class ProductsController extends Controller
         $jenis = Product_Categories::all();
 
         return view('pages.products.create', ['data' => $usaha, 'kategori' => $jenis]);
+    }
+
+    public function create(Request $request)
+    {
+        $harga = Str::before($request->harga, '.00');
+        $duit = preg_replace('/[^0-9]/', '', $harga);
+
+        
     }
 }

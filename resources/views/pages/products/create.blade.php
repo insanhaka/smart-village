@@ -4,31 +4,31 @@
     <div class="content">
         <p>Tambah Data Produk</p>
         <hr>
-        <form method="POST" action="/admin/produk/create">
+        <form method="POST" action="/admin/produk/create" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="container" style="margin-top: -10px;">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleInputEmail1">Nama Produk</label>
-                            <input type="text" class="form-control" id="nama" placeholder="Nama Produk">
+                            <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama Produk">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" rows="3"></textarea>
+                            <textarea class="form-control" name="deskripsi" id="deskripsi" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="inputEmail4">Harga</label>
-                      <input type='currency' class="form-control" placeholder='ketik tanpa tanda koma/titik' />
+                      <input type='currency' class="form-control" name="harga" placeholder='ketik tanpa tanda koma/titik' />
                     </div>
                     <div class="form-group col-md-6">
                       <label for="inputPassword4">Stok</label>
-                      <input type="text" class="form-control" id="inputPassword4" placeholder="Stok">
+                      <input type="text" class="form-control" name="stok" id="inputPassword4" placeholder="Stok">
                     </div>
                 </div>
                 <div class="row">
@@ -36,10 +36,14 @@
                         <div class="form-group">
                             <label for="inputPassword4">Upload Foto Produk</label>
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="inputGroupFile03">
+                              <input type="file" class="custom-file-input" id="foto" name="foto" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                               <label class="custom-file-label" for="inputGroupFile03">Choose file</label>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-6">
+                        <br>
+                        <img id="blah" alt="your image" width="200" height="100" />
                     </div>
                 </div>
                 <div class="form-row">
@@ -130,9 +134,8 @@
     <script>
         $(document).ready(function(){
 
-            var APP_URL_ADMIN = {!! json_encode(url(\Request::route()->getPrefix())) !!};
-
-            $.comboAjax('#business_id','#product_categories_id', APP_URL_ADMIN+'/getcategori');
+            var APP_URL_ADMIN = {!! json_encode(url('/api')) !!};
+            $.comboAjax('#business_id','#product_categories_id', APP_URL_ADMIN+'/getBusinessId');
 
         });
     </script>

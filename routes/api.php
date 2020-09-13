@@ -18,4 +18,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::post('/getBusinessId', function (Request $request) {
+    $arrCategories = App\Product_Categories::where('business_id', $request->paramid)->orderBy('kategori_produk','asc')->pluck('id','kategori_produk')->prepend('','Pilih Kategori');
+    return response()->json(['code' => 200,'data' => $arrCategories], 200);
+})->name('getBusinessId');
+
 // Route::post('user-activation', 'AdminController@activation');
