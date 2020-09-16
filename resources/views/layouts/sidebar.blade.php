@@ -10,7 +10,7 @@
           <img src="{{asset('assets/img/logo-small.png')}}">
           </div>
         </a>
-        <a href="{{url('/admin')}}" class="simple-text logo-normal" style="font-weight: bold">
+        <a href="{{url('/admin')}}" class="simple-text logo-normal" style="font-weight: bold; color: #ffff;">
           Admin
         </a>
       </div>

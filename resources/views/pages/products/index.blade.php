@@ -28,8 +28,8 @@
                                     <div class="card-body">
                                         <p class="card-text text-right created_at"><small class="text-muted">{!! $value->created_at !!}</small></p>
                                         <h6 class="card-title judul" style="font-weight: bold;">{!! $value->nama !!}</h6>
-                                        <p class="card-text">{!! $value->deskripsi !!}</p>
-                                        <a class="btn btn-primary" href="#" role="button">Lihat Berita</a>
+                                        <p class="card-text">{!! Str::words($value->deskripsi, 5, ' ...') !!}</p>
+                                        <a class="btn btn-primary" href="#" role="button">Lihat Produk</a>
                                     </div>
                                 </div>
                             </div>

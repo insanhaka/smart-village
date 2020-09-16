@@ -4715,7 +4715,7 @@ License - nucleoapp.com/license/
   line-height: 30px;
   width: 34px;
   text-align: center;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
   position: relative;
 }
 
@@ -4823,7 +4823,7 @@ License - nucleoapp.com/license/
 .sidebar .logo-tim,
 .off-canvas-sidebar .logo-tim {
   border-radius: 50%;
-  border: 1px solid #333;
+  border: 1px solid rgb(255, 255, 255);
   display: block;
   height: 61px;
   width: 61px;
@@ -4854,16 +4854,16 @@ License - nucleoapp.com/license/
 .sidebar:after,
 .off-canvas-sidebar:after {
   background: #ffff;
-  background: -webkit-linear-gradient(#66615B 0%, #000 80%);
-  background: -o-linear-gradient(#66615B 0%, #000 80%);
-  background: -moz-linear-gradient(#66615B 0%, #000 80%);
-  background: linear-gradient(#66615B 0%, #000 80%);
+  background: -webkit-linear-gradient(#ffffff 0%, #000 80%);
+  background: -o-linear-gradient(#ffffff 0%, #000 80%);
+  background: -moz-linear-gradient(#ffffff 0%, #000 80%);
+  background: linear-gradient(#ffffff 0%, #000 80%);
   z-index: 3;
 }
 
 .sidebar[data-color="white"]:after,
 .off-canvas-sidebar[data-color="white"]:after {
-  background: #e2ede2;
+  background: #2c2c54;
 }
 
 .sidebar[data-color="white"] .nav li a,
@@ -4878,7 +4878,7 @@ License - nucleoapp.com/license/
 .off-canvas-sidebar[data-color="white"] .nav li a[data-toggle="collapse"] i,
 .off-canvas-sidebar[data-color="white"] .nav li a[data-toggle="collapse"]~div>ul>li .sidebar-mini-icon,
 .off-canvas-sidebar[data-color="white"] .nav li a[data-toggle="collapse"]~div>ul>li>a {
-  color: #66615B;
+  color: #ffffff;
   opacity: .7;
 }
 

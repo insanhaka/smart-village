@@ -35,6 +35,23 @@ class ProductsController extends Controller
         $harga = Str::before($request->harga, '.00');
         $duit = preg_replace('/[^0-9]/', '', $harga);
 
-        
+        // menyimpan data file yang diupload ke variabel
+        $foto = $request->file('foto');
+        $nama_file = time()."_".$foto->getClientOriginalName();
+        // isi dengan nama folder tempat kemana file diupload
+        $tujuan_upload = 'product_pictures';
+        $foto->move($tujuan_upload,$nama_file);
+
+        Products::create([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'harga' => $duit,
+            'stok' => $request->stok,
+            'foto' => $nama_file,
+            'product_categories_id' => $request->product_categories_id,
+            'business_id' => $request->business_id,
+        ]);
+
+        return redirect(url('/admin/usaha'))->with('success','Data Berhasil Disimpan');
     }
 }
